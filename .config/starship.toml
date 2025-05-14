@@ -1,0 +1,15 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = '$python$directory$character '
+
+[directory]
+format = '[$path](bold #00a0ff)'
+
+[character]
+format = '[>](bold #d0e0ff)'
+
+[python]
+format = '[$symbol$virtualenv$symbol](bold #0000ff) '
+symbol = '\\'

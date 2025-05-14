@@ -1,0 +1,148 @@
+* {
+    border: none;
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-seri;
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 0 2px;
+}
+
+window#waybar { 
+    background-color: rgba(0, 0, 128, 0);
+    color: #a0ffff;
+}
+
+#window {
+    background-color: #000;
+    border: solid 1px #a0ffff;
+    color: #a0ffff;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 3px;
+}
+
+window#waybar.empty #window {
+    border: none;
+    border-radius: 0px;
+    padding: 0 0px;
+    margin: 0 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#workspaces {
+    background-color: #000;
+    border: solid 1px #1090f0;
+    color: #1090f0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+#workspaces button {
+    color: #60b0f0;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #60b0f0;
+    box-shadow: inset 0 0px transparent;
+}
+
+#workspaces button.focused {
+    color: transparent;
+    background-color: transparent;
+}
+
+#clock {
+    background-color: #000;
+    border: solid 1px #00a0ff;
+    color: #00a0ff;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+}
+
+#battery {
+    background-color: #000;
+    border: solid 1px #0060ff;
+    color: #0060ff;
+    padding-left: 14px;
+    padding-right: 21px;
+    padding-top: 3px;
+}
+
+#battery.charging {
+    border: solid 1px #0f0;
+    color: #0f0;
+}
+
+#battery.critical:not(.charging) {
+    color: #f00;
+    border: solid 1px #f00;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffb000;
+    border: solid 1px #ffb000;
+}
+
+#cpu, #memory {
+    background-color: #000;
+    border: solid 1px #3050ff;
+    color: #3050ff;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 3px;
+}
+
+#backlight {
+    background-color: #000;
+    border: solid 1px #60ffff;
+    color: #60ffff;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 3px;
+}
+
+#network {
+    background-color: #000;
+    border: solid 1px #0080ff;
+    color: #0080ff;
+    padding-left: 9px;
+    padding-right: 17px;
+    margin-right: 6px;
+}
+
+#network.disconnected {
+    color: #f00;
+    border: solid 1px #f00;
+}
+
+#pulseaudio {
+    background-color: #000;
+    border: solid 1px #60c0ff;
+    color: #60c0ff;
+    padding-left: 14px;
+    padding-right: 21px;
+    padding-top: 3px;
+}
+
+#pulseaudio.bluetooth {
+    padding-right: 14px;
+}
+
+#language {
+    background-color: #000;
+    border: solid 1px #80c0ff;
+    color: #80c0ff;
+    padding-left: 13px;
+    padding-right: 12px;
+    padding-top: 3px;
+}
+
+#custom-archlogo {
+    background-color: #000;
+    border: solid 1px #0ff;
+    color: #0ff;
+    margin-left: 6px;
+    padding-left: 10px;
+    padding-right: 13px;
+}

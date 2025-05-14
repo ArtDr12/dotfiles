@@ -1,0 +1,193 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layepadding "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 33, // Waybar height (to be removed for auto height)
+    //"width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["custom/archlogo", "memory", "hyprland/language", "clock"],
+    "modules-center": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["pulseaudio", "backlight", "battery", "network"],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "active-only": true,
+        "format": " {name}",
+        "all-outputs": true
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt>{:%d} {calendar}</tt>"
+    },
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": false,
+        "on-click": "kitty htop"
+    },
+    "memory": {
+      "format": "RAM: {}%",
+      "tooltip": false,
+      "on-click": "kitty btop"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sysclass/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% ",
+        "on-click": "brightnessctl s 0%",
+        "tooltip": false
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 24,
+            "critical": 9
+        },
+        "format": "{capacity}% ",
+        "format-full": "{capacity}% ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "on-click": "kitty --hold upower -i /org/freedesktop/UPower/devices/battery_BAT0",
+        "design-capacity": true
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format": "",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        //"format-ethernet": "{ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "",
+        "on-click": "kitty nmtui"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% ",
+        "format-bluetooth-muted": "  ",
+        "format-muted": "",
+        "format-icons": {
+            //"headphone": "",
+            //"hands-free": "",
+            //"headset": "",
+            //"phone": "",
+            //"portable": "",
+            //"car": "",
+            "default": [""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/powerbutton": {
+        "format": "",
+        "on-click": "shutdown now",
+        "tooltip": false
+    },
+      "custom/quit": {
+          "format": "",
+          "on-click": "hyprctl dispatch exit",
+          "tooltip": false
+      },
+      "custom/archlogo": {
+          "format": "󰣇",
+          "on-click": "kitty --start-as=fullscreen hollywood",
+          "tooltip": false
+      },
+      "hyprland/window": {
+          "format": "{initialTitle}",
+          "tooltip-format": "{title}",
+          "max-length": 100
+      },
+      "hyprland/language": {
+          "format": "{}",
+          "format-en": "English"
+     }
+}
