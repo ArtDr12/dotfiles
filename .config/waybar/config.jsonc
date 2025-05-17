@@ -82,7 +82,7 @@
     "memory": {
       "format": "RAM: {}%",
       "tooltip": false,
-      "on-click": "kitty btop"
+      "on-click": "kitty htop"
     },
     "temperature": {
         // "thermal-zone": 2,
