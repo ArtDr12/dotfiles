@@ -36,8 +36,8 @@ alias upd='\
     sudo pacman -Dk && \
     \
     echo -e "\n\033[1;34m[7/7] Rebuilding missing or corrupted files...\033[0m" && \
-    (sudo pacman -Qqn | sudo pacman -Dq --asdeps) || echo Nothing to rebuild && \
-    (sudo pacman -Qq | sudo pacman -Dq --asexplicit) || echo Nothing to rebuild && \
+    sudo pacman -Qqn | sudo pacman -D --asdeps | wc -l && \
+    sudo pacman -Qq | sudo pacman -D --asexplicit | wc -l && \
     \
     echo -e "\n\033[1;32m==> Full update completed!\033[0m"'
 
