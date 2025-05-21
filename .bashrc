@@ -15,29 +15,29 @@ alias py="python3"
 alias upd='\
     sudo -v && \
     echo -e "\n\033[1;32m==> Starting full system update...\033[0m" && \
-    echo -e "\n\033[1;34m[1/7] Updating pacman databases...\033[0m" && \
+    echo -e "\n\033[1;34m[1/6] Updating pacman databases...\033[0m" && \
     sudo pacman -Syy && \
     \
-    echo -e "\n\033[1;34m[2/7] Updating system packages with yay...\033[0m" && \
+    echo -e "\n\033[1;34m[2/6] Updating packages...\033[0m" && \
     yay -Syu --devel --timeupdate --noconfirm && \
-    \
-    echo -e "\n\033[1;34m[3/7] Updating flatpak packages...\033[0m" && \
     flatpak update -y && \
     \
-    echo -e "\n\033[1;34m[4/7] Removing orphaned packages...\033[0m" && \
-    (sudo pacman -Qtdq | sudo pacman -Rns) || echo No orphaned pacman packages && \
-    flatpak uninstall --unused && \
-    \
-    echo -e "\n\033[1;34m[5/7] Cleaning package cache...\033[0m" && \
+    echo -e "\n\033[1;34m[3/6] Cleaning package cache...\033[0m" && \
     yay -Sc --noconfirm && \
+    echo -e "\nCache directory: /home/$USER/.cache/" && \
+    echo removing cache directory... && \
     rm -rf .cache && \
     \
-    echo -e "\n\033[1;34m[6/7] Checking for broken packages...\033[0m" && \
+    echo -e "\n\033[1;34m[4/6] Removing orphaned packages...\033[0m" && \
+    (sudo pacman -Qtdq | sudo pacman -Rns 2> /dev/null) || echo No orphaned pacman packages && \
+    flatpak uninstall --unused && \
+    \
+    echo -e "\n\033[1;34m[5/6] Checking for broken packages...\033[0m" && \
     sudo pacman -Dk && \
     \
-    echo -e "\n\033[1;34m[7/7] Rebuilding missing or corrupted files...\033[0m" && \
-    sudo pacman -Qqn | sudo pacman -D --asdeps | wc -l && \
-    sudo pacman -Qq | sudo pacman -D --asexplicit | wc -l && \
+    echo -e "\n\033[1;34m[6/6] Rebuilding missing or corrupted files...\033[0m" && \
+    sudo pacman -Qqn | sudo pacman -D --asdeps 2> /dev/null | wc -l && \
+    sudo pacman -Qq | sudo pacman -D --asexplicit 2> /dev/null | wc -l && \
     \
     echo -e "\n\033[1;32m==> Full update completed!\033[0m"'
 
