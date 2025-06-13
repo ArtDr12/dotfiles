@@ -32,12 +32,13 @@ alias upd='\
     echo -e "\n\033[1;34m[4/5] Rebuilding missing or corrupted files...\033[0m" && \
     sudo pacman -Qqn | sudo pacman -D --asdeps 2> /dev/null | wc -l && \
     sudo pacman -Qq | sudo pacman -D --asexplicit 2> /dev/null | wc -l && \
+    flatpak repair && \
     \
     echo -e "\n\033[1;34m[5/5] Cleaning package cache...\033[0m" && \
     yay -Sc --noconfirm && \
     echo -e "\nCache directory: /home/$USER/.cache/" && \
     echo removing cache directory... && \
-    rm -rf .cache && \
+    rm -rf ~/.cache && \
     \
     echo -e "\n\033[1;32m==> Full update completed!\033[0m"'
 

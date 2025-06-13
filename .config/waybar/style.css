@@ -6,14 +6,25 @@
     margin: 0 2px;
 }
 
+#window, 
+#workspaces, 
+#clock, 
+#battery, 
+#cpu, #memory, 
+#backlight, 
+#network, 
+#pulseaudio, 
+#language, 
+#custom-archlogo {
+    background-color: #000000;
+}
+
 window#waybar { 
     background-color: rgba(0, 0, 128, 0);
     color: #a0ffff;
 }
 
 #window {
-    background-color: #000;
-    border: solid 1px #a0ffff;
     color: #a0ffff;
     padding-left: 13px;
     padding-right: 13px;
@@ -21,7 +32,6 @@ window#waybar {
 }
 
 window#waybar.empty #window {
-    border: none;
     border-radius: 0px;
     padding: 0 0px;
     margin: 0 0px;
@@ -29,8 +39,6 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-    background-color: #000;
-    border: solid 1px #1090f0;
     color: #1090f0;
     padding-left: 2px;
     padding-right: 2px;
@@ -52,8 +60,6 @@ window#waybar.empty #window {
 }
 
 #clock {
-    background-color: #000;
-    border: solid 1px #00a0ff;
     color: #00a0ff;
     padding-left: 12px;
     padding-right: 12px;
@@ -61,8 +67,6 @@ window#waybar.empty #window {
 }
 
 #battery {
-    background-color: #000;
-    border: solid 1px #0060ff;
     color: #0060ff;
     padding-left: 14px;
     padding-right: 21px;
@@ -70,23 +74,18 @@ window#waybar.empty #window {
 }
 
 #battery.charging {
-    border: solid 1px #0f0;
     color: #0f0;
 }
 
 #battery.critical:not(.charging) {
     color: #f00;
-    border: solid 1px #f00;
 }
 
 #battery.warning:not(.charging) {
     color: #ffb000;
-    border: solid 1px #ffb000;
 }
 
 #cpu, #memory {
-    background-color: #000;
-    border: solid 1px #3050ff;
     color: #3050ff;
     padding-left: 13px;
     padding-right: 13px;
@@ -94,8 +93,6 @@ window#waybar.empty #window {
 }
 
 #backlight {
-    background-color: #000;
-    border: solid 1px #60ffff;
     color: #60ffff;
     padding-left: 13px;
     padding-right: 13px;
@@ -103,8 +100,6 @@ window#waybar.empty #window {
 }
 
 #network {
-    background-color: #000;
-    border: solid 1px #0080ff;
     color: #0080ff;
     padding-left: 9px;
     padding-right: 17px;
@@ -113,12 +108,9 @@ window#waybar.empty #window {
 
 #network.disconnected {
     color: #f00;
-    border: solid 1px #f00;
 }
 
 #pulseaudio {
-    background-color: #000;
-    border: solid 1px #60c0ff;
     color: #60c0ff;
     padding-left: 14px;
     padding-right: 21px;
@@ -130,8 +122,6 @@ window#waybar.empty #window {
 }
 
 #language {
-    background-color: #000;
-    border: solid 1px #80c0ff;
     color: #80c0ff;
     padding-left: 13px;
     padding-right: 12px;
@@ -139,8 +129,6 @@ window#waybar.empty #window {
 }
 
 #custom-archlogo {
-    background-color: #000;
-    border: solid 1px #0ff;
     color: #0ff;
     margin-left: 6px;
     padding-left: 10px;

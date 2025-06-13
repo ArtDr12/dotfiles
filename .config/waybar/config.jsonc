@@ -133,8 +133,6 @@
         "format": "",
         "tooltip-format": "{essid} ({signalStrength}%)",
         //"format-ethernet": "{ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "",
         "on-click": "kitty nmtui"
     },
     "pulseaudio": {
