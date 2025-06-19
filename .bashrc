@@ -23,7 +23,7 @@ alias upd='\
     flatpak update -y && \
     \
     echo -e "\n\033[1;34m[2/5] Removing orphaned packages...\033[0m" && \
-    (sudo pacman -Qtdq | sudo pacman -Rns 2> /dev/null) || echo No orphaned pacman packages && \
+    (sudo pacman -Rns $(pacman -Qdtq) 2> /dev/null) || echo No orphaned pacman packages && \
     flatpak uninstall --unused && \
     \
     echo -e "\n\033[1;34m[3/5] Checking for broken packages...\033[0m" && \

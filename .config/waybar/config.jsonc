@@ -1,12 +1,13 @@
 // -*- mode: jsonc -*-
 {
     "layer": "top", // Waybar at top layepadding "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 33, // Waybar height (to be removed for auto height)
-    //"width": 1280, // Waybar width
+    // "height": 33, // Waybar height (to be removed for auto height)
+    "width": 1900, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
+    "margin": 5,
     // Choose the order of the modules
     "modules-left": ["custom/archlogo", "memory", "hyprland/language", "clock"],
-    "modules-center": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces", "hyprland/window", "tray"],
     "modules-right": ["pulseaudio", "backlight", "battery", "network"],
     // Modules configuration
     "hyprland/workspaces": {
@@ -67,8 +68,8 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "icon-size": 18,
+        "spacing": 5
     },
     "clock": {
         "format": "{:%H:%M}",
@@ -180,8 +181,8 @@
           "tooltip": false
       },
       "hyprland/window": {
-          "format": "{initialTitle}",
-          "tooltip-format": "{title}",
+          "format": "{title}",
+          "tooltip": false,
           "max-length": 100
       },
       "hyprland/language": {
