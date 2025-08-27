@@ -48,7 +48,7 @@
 #window {
     color: #a0ffff;
     padding-left: 10px;
-    padding-right: 8px;
+    padding-right: 9px;
 }
 
 window#waybar.empty #window {
@@ -118,7 +118,7 @@ window#waybar.empty #window {
 #backlight {
     color: #60ffff;
     padding-left: 13px;
-    padding-right: 13px;
+    padding-right: 17px;
 }
 
 #network {
