@@ -82,7 +82,7 @@
     },
     "memory": {
       "format": "RAM: {}%",
-      "tooltip": false,
+      "tooltip-format": "{used}/{total}G",
       "on-click": "kitty btop"
     },
     "temperature": {
@@ -102,18 +102,18 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
-            "warning": 24,
-            "critical": 9
+            "warning": 25,
+            "low": 10,
+            "critical": 5
         },
         "format": "{capacity}% ",
-        "format-full": "{capacity}% ",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
         "on-click": "kitty --hold upower -i /org/freedesktop/UPower/devices/battery_BAT0",
-        "design-capacity": true
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "design-capacity": true,
+        "events": {
+		        "on-discharging-low": "notify-send -u critical 'Low Battery'",
+		        "on-charging-100": "notify-send -u normal 'Battery Full!'",
+            "on-discharging-critical": "notify-send -u critical 'Very Low Battery!'"
+	      }
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -138,19 +138,10 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
+        "format": "{volume}% ",
         "format-bluetooth": "{volume}% ",
         "format-bluetooth-muted": "  ",
         "format-muted": "",
-        "format-icons": {
-            //"headphone": "",
-            //"hands-free": "",
-            //"headset": "",
-            //"phone": "",
-            //"portable": "",
-            //"car": "",
-            "default": [""]
-        },
         "on-click": "pavucontrol"
     },
     "custom/media": {

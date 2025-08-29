@@ -48,7 +48,7 @@
 #window {
     color: #a0ffff;
     padding-left: 10px;
-    padding-right: 9px;
+    padding-right: 8px;
 }
 
 window#waybar.empty #window {
@@ -101,6 +101,11 @@ window#waybar.empty #window {
 }
 
 #battery.warning:not(.charging) {
+    color: #ffff00;
+    border-color: #666600;
+}
+
+#battery.low:not(.charging) {
     color: #ffb000;
     border-color: #664200;
 }
@@ -118,7 +123,7 @@ window#waybar.empty #window {
 #backlight {
     color: #60ffff;
     padding-left: 13px;
-    padding-right: 17px;
+    padding-right: 13px;
 }
 
 #network {
