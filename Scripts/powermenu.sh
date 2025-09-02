@@ -3,17 +3,6 @@
 # Current Theme
 theme="$HOME/.config/rofi/config.rasi"
 
-# CMDs
-uptime="`uptime -p | sed -e 's/up //g' | sed -e 's/hour/hr/g' | sed -e 's/minute/min/g'`"
-
-# # Options
-# shutdown=' Shutdown'
-# reboot='⟳ Reboot'
-# lock=' Lock'
-# suspend=' Suspend'
-# logout=' Logout'
-# yes=' Yes'
-# no=' No'
 # Options
 shutdown='Shutdown'
 reboot='Reboot'

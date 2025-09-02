@@ -3,9 +3,7 @@
 # Current Theme
 theme="$HOME/.config/rofi/config.rasi"
 
-# CMDs
-uptime="`uptime -p | sed -e 's/up //g' | sed -e 's/hour/hr/g' | sed -e 's/minute/min/g'`"
-
+# Options
 wallpaper='Change Wallpaper'
 powermenu='Manage Session'
 
