@@ -34,6 +34,7 @@ window {
     background-color: @background;
     border:           2;
     padding:          5;
+    width:            800px;
 }
 mainbox {
     border:  0;
@@ -54,6 +55,7 @@ listview {
     spacing:      0px ;
     scrollbar:    true;
     padding:      2px 0px 0px ;
+    lines: 12;
 }
 element {
     border:  0;
@@ -143,7 +145,7 @@ textbox-prompt-colon {
 configuration {
   modes: "window,windowcd,run,ssh,drun,combi,keys,filebrowser,recursivebrowser";
   show-icons: true;
-  font: "Cantarell 13";
+  font: "Cantarell 14";
   cache-dir: "~/.config/rofi/";
   drun-display-format: "{name}";
   scroll-method: 1;
