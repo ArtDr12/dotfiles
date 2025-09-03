@@ -110,9 +110,8 @@
         "on-click": "kitty --hold upower -i /org/freedesktop/UPower/devices/battery_BAT0",
         "design-capacity": true,
         "events": {
-		        "on-discharging-low": "notify-send -u critical 'Low Battery'",
-		        "on-charging-100": "notify-send -u normal 'Battery Full!'",
-            "on-discharging-critical": "notify-send -u critical 'Very Low Battery!'"
+		        "on-discharging-low": "notify-send -u critical -i battery-level-10-symbolic 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical -i battery-empty-symbolic 'Very Low Battery!'"
 	      }
     },
     "battery#bat2": {

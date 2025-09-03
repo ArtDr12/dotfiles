@@ -4,4 +4,5 @@ sudo -v
 sudo pacman -Syu 
 echo
 flatpak update
-sleep 1
+if [[ $(hyprctl activewindow | grep "title:" | sed -e 's/^[ \t]*//') != "title: update.sh" ]]; then notify-send -i software-update-available "System update complete"; fi
+sleep 2
