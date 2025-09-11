@@ -22,7 +22,8 @@ confirm_cmd() {
 	rofi -markup-rows -dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
-		-theme ${theme}
+		-theme ${theme} \
+    -theme-str 'inputbar { enabled: false; }'
 }
 
 # Ask for confirmation
@@ -32,7 +33,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$shutdown\n$reboot\n$lock\n$suspend\n$logout" | rofi_cmd
+	echo -e "$shutdown\0icon\1fsystem-shutdown-symbolic.svg\n$reboot\n$lock\n$suspend\n$logout" | rofi_cmd
 }
 
 # Execute Command
