@@ -10,35 +10,19 @@ lock='Lock'
 suspend='Suspend'
 logout='Logout'
 
-# Rofi CMD
-rofi_cmd() {
-	rofi -dmenu \
-		-theme ${theme} \
-    -theme-str 'inputbar { enabled: false; }'
-}
-
-# Confirmation CMD
-confirm_cmd() {
-	rofi -markup-rows -dmenu \
-		-p 'Confirmation' \
-		-mesg 'Are you Sure?' \
-		-theme ${theme} \
-    -theme-str 'inputbar { enabled: false; }'
-}
-
 # Ask for confirmation
-confirm_exit() {
-	echo -e "Yes\nNo" | confirm_cmd
+confirm() {
+	echo -e "Yes\nNo" | rofi -markup-rows -dmenu -mesg 'Are you Sure?' -theme ${theme} -theme-str 'inputbar { enabled: false; }'
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$shutdown\0icon\1fsystem-shutdown-symbolic.svg\n$reboot\n$lock\n$suspend\n$logout" | rofi_cmd
+	echo -e "$shutdown\0icon\1fsystem-shutdown-symbolic.svg\n$reboot\n$lock\n$suspend\n$logout" | rofi -dmenu -theme ${theme} -theme-str 'inputbar { enabled: false; }'
 }
 
 # Execute Command
 run_cmd() {
-	selected="$(confirm_exit)"
+	selected="$(confirm)"
 	echo "$selected"
 	if [[ "$selected" =~ "Yes" ]]; then
 		if [[ $1 == '--shutdown' ]]; then
@@ -53,7 +37,7 @@ run_cmd() {
       hyprlock
     fi
 	else
-		exit 0
+	  exit 0
 	fi
 }
 

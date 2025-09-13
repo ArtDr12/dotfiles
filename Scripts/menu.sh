@@ -8,26 +8,21 @@ wallpaper='Change Wallpaper'
 powermenu='Manage Session'
 update='System Update'
 
-# Rofi CMD
-rofi_cmd() {
-	rofi -dmenu \
-		-theme ${theme} \
-    -theme-str 'inputbar { enabled: false; }'
-}
-
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$wallpaper\n$powermenu\n$update" | rofi_cmd
+	echo -e "$wallpaper\n$powermenu\n$update" | rofi -dmenu -theme ${theme} -theme-str 'inputbar { enabled: false; }'
 }
 
 # Execute Command
 run_cmd() {
 	if [[ $1 == '--wallpaper' ]]; then
-		for a in $HOME/.config/hypr/backgrounds/*; do echo -en "$(basename $a)\0icon\x1f$a\n"; done | swww img $HOME/.config/hypr/backgrounds/$(rofi -dmenu -p "Choose the background") --transition-type outer --transition-step 15 && notify-send -i preferences-desktop-theme -u low "Wallpaper changed"
+    $HOME/Scripts/wallpaper.sh
   elif [[ $1 == '--powermenu' ]]; then
-     $HOME/Scripts/powermenu.sh
+    $HOME/Scripts/powermenu.sh
   elif [[ $1 == '--update' ]]; then 
-      kitty $HOME/Scripts/update.sh
+    kitty $HOME/Scripts/update.sh
+  else
+    exit 0
   fi
 }
 
