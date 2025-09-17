@@ -9,6 +9,7 @@ reboot='Reboot'
 lock='Lock'
 suspend='Suspend'
 logout='Logout'
+back='Back'
 
 # Ask for confirmation
 confirm() {
@@ -17,7 +18,7 @@ confirm() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$shutdown\0icon\1fsystem-shutdown-symbolic.svg\n$reboot\n$lock\n$suspend\n$logout" | rofi -dmenu -theme ${theme} -theme-str 'inputbar { enabled: false; }'
+	echo -e "$shutdown\0icon\1fsystem-shutdown-symbolic.svg\n$reboot\n$lock\n$suspend\n$logout\n$back" | rofi -dmenu -theme ${theme} -theme-str 'inputbar { enabled: false; }'
 }
 
 # Execute Command
@@ -35,6 +36,8 @@ run_cmd() {
       hyprctl dispatch exit
     elif [[ $1 == '--lock' ]]; then
       hyprlock
+    elif [[ $1 == '--back' ]]; then
+      $HOME/Scripts/menu/menu.sh
     fi
 	else
 	  exit 0
@@ -58,5 +61,8 @@ case ${chosen} in
         ;;
     $logout)
 		run_cmd --logout
+        ;;
+    $back)
+    run_cmd --back 
         ;;
 esac
