@@ -1,7 +1,7 @@
 neofetch --ascii_colors 14 14 --colors 14 6 6 6 6 15
 echo -e "Launching system update...\n"
 sudo -v 
-yay -Syu 
+yay --color always || sudo pacman -Su --color always
 echo
 flatpak update
 echo -e "\nDone"

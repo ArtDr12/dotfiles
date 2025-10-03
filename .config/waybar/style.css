@@ -35,7 +35,7 @@
     border: 3px solid #282828;
 }
 
-#cpu, #memory, #language, #clock,
+#cpu, #memory, #clock,
 #window, #tray,
 #pulseaudio, #backlight, #battery {
     padding-top: 3px;
@@ -150,6 +150,7 @@ window#waybar.empty #window {
     color: #80c0ff;
     padding-left: 13px;
     padding-right: 12px;
+    padding-top: 2px;
 }
 
 #custom-archlogo {

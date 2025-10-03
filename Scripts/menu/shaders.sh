@@ -11,7 +11,7 @@ back='Back'
 
 # Pass variables to rofi dmenu
 run_rofi() {
-  echo -e "$bluelight\n$grayscale\n$disable\n$back" | rofi -dmenu -theme ${theme} -p "Choose the shader"
+  (echo -e "$bluelight\n$grayscale\n$disable\n$back" | rofi -dmenu -theme ${theme} -p "Choose the shader") || run_cmd
 }
 
 # Execute Command
@@ -22,10 +22,8 @@ run_cmd() {
     hyprshade off
   elif [[ $1 == '--grayscale' ]]; then
     hyprshade toggle grayscale
-  elif [[ $1 == '--back' ]]; then 
-    $HOME/Scripts/menu/appearance.sh
-  else 
-    exit 0
+  else
+    $HOME/Scripts/menu/menu.sh
   fi
 }
 
@@ -42,6 +40,6 @@ case ${chosen} in
     run_cmd --grayscale
         ;;
     $back)
-    run_cmd --back 
+    run_cmd
         ;;
 esac

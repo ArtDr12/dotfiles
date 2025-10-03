@@ -89,7 +89,6 @@
         // "thermal-zone": 2,
         // "hwmon-path": "/sysclass/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C",
         "format-icons": ["", "", ""],
         "tooltip": false
@@ -97,7 +96,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% ",
-        "on-click": "brightnessctl s 0%",
+        "on-click": "brightnessctl s 1%",
         "tooltip": false
     },
     "battery": {
@@ -129,14 +128,11 @@
       }
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format": "",
         "tooltip-format": "{essid} ({signalStrength}%)",
-        //"format-ethernet": "{ipaddr}/{cidr} ",
         "on-click": "kitty nmtui"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% ",
         "format-bluetooth": "{volume}% ",
         "format-bluetooth-muted": "  ",
@@ -176,7 +172,8 @@
           "max-length": 100
       },
       "hyprland/language": {
-          "format": "{}",
-          "format-en": "English"
+          "format": " {}",
+          "format-en": "EN",
+          "format-ru": "RU"
      }
 }

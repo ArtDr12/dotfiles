@@ -47,6 +47,9 @@ element-text {
     background-color: inherit;
     text-color:       inherit;
 }
+element-icon {
+    size: 1em;
+}
 element.normal.normal {
     background-color: @normal-background;
     text-color:       @textcolor;

@@ -4,24 +4,27 @@
 theme="$HOME/.config/rofi/config.rasi"
 
 # Options
-appearance='Appearance Settings'
+wallpaper='Change Wallpaper'
 powermenu='Manage Session'
 update='System Update'
+shaders='Shaders'
 exit='Exit'
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$appearance\n$update\n$powermenu\n$exit" | rofi -dmenu -theme ${theme} -theme-str 'inputbar { enabled: false; }'
+	echo -e "$wallpaper\n$update\n$powermenu\n$shaders\n$exit" | rofi -dmenu -theme ${theme} -theme-str 'inputbar { enabled: false; }'
 }
 
 # Execute Command
 run_cmd() {
-	if [[ $1 == '--appearance' ]]; then
-    $HOME/Scripts/menu/appearance.sh
+	if [[ $1 == '--wallpaper' ]]; then
+    $HOME/Scripts/menu/wallpaper.sh
   elif [[ $1 == '--powermenu' ]]; then
     $HOME/Scripts/menu/powermenu.sh
   elif [[ $1 == '--update' ]]; then 
-    kitty $HOME/Scripts/menu/update.sh
+    kitty $HOME/Scripts/update.sh
+  elif [[ $1 == '--shaders' ]]; then
+    $HOME/Scripts/menu/shaders.sh
   else
     exit 0
   fi
@@ -30,14 +33,17 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $appearance)
-		run_cmd --appearance
+    $wallpaper)
+		run_cmd --wallpaper
         ;;
     $powermenu)
 		run_cmd --powermenu
         ;;
     $update)
     run_cmd --update 
+        ;;
+    $shaders)
+    run_cmd --shaders 
         ;;
     $exit)
     run_cmd
