@@ -2,11 +2,11 @@ neofetch --ascii_colors 14 14 --colors 14 6 6 6 6 15
 
 echo -e "Launching system update...\n"
 sudo -v 
-yay --color always || sudo pacman -Su --color always
+yay --color always --noconfirm || sudo pacman -Su --color always --noconfirm
 echo
-flatpak update
+flatpak update -y
 
-if [[ $(hyprctl activewindow | grep "title:" | sed -e 's/^[ \t]*//') != "title: update.sh" ]]; then notify-send -i software-update-available -u low "System update complete"; fi
+hyprctl notify 1 5000 0 "fontsize:16 System update complete"
 
 echo
 read -p "Do you want to clear cache? (y/N) " yn

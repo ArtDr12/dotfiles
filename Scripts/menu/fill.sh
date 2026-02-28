@@ -19,17 +19,22 @@ run_rofi() {
 # Execute Command
 run_cmd() {
   if [[ $1 == '--black' ]]; then
-    swww clear 000000
+    COLOR="000000"
   elif [[ $1 == '--darkblue' ]]; then
-    swww clear 000020
+    COLOR="000020"
   elif [[ $1 == '--blue' ]]; then
-    swww clear 000050
+    COLOR="000050"
   elif [[ $1 == '--cyan' ]]; then
-    swww clear 005984
+    COLOR="005984"
   elif [[ $1 == '--gray' ]]; then
-    swww clear 303030
+    COLOR="303030"
   else
     $HOME/Scripts/menu/wallpaper.sh
+  fi
+
+  if [[ -n $1 ]]; then
+    swww clear $COLOR
+    hyprctl notify -1 5000 "rgb($COLOR)" "fontsize:16 Wallpaper filled"
   fi
 }
 
