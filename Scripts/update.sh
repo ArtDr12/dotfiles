@@ -6,7 +6,7 @@ yay --color always --noconfirm || sudo pacman -Su --color always --noconfirm
 echo
 flatpak update -y
 
-hyprctl notify 1 5000 0 "fontsize:16 System update complete"
+hyprctl notify 1 5000 0 "fontsize:16 System update complete" > /dev/null
 
 echo
 read -p "Do you want to clear cache? (y/N) " yn
