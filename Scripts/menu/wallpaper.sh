@@ -9,7 +9,7 @@ fill='Fill'
 back='Back'
 
 # Transition
-transition_type=$(echo -e "outer\ncenter\nouter\ncenter\nwipe\nwipe\nwipe" | shuf -n 1)
+transition_type=$(echo -e "outer\ncenter\nouter\ncenter\nwave\nwave\nwave" | shuf -n 1)
 transition_angle=$(shuf -i 0-23 -n 1)
 
 # Pass variables to rofi dmenu
