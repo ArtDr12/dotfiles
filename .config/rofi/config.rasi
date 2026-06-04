@@ -105,7 +105,7 @@ configuration {
   modes: "drun";
   show-icons: true;
   font: "Cantarell 14";
-  cache-dir: "~/.config/rofi/";
+  cache-dir: "~/.local/share/rofi/";
   drun-display-format: "{name}";
   scroll-method: 1;
   terminal: "kitty";

@@ -33,7 +33,7 @@ run_cmd() {
   fi
 
   if [[ -n $1 ]]; then
-    swww clear $COLOR
+    awww clear $COLOR
     hyprctl notify -1 5000 "rgb($COLOR)" "fontsize:16 Wallpaper filled"
   fi
 }
