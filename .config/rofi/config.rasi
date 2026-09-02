@@ -102,11 +102,12 @@ textbox-prompt-colon {
 }
 
 configuration {
-  modes: "drun";
+  modes: [drun,window];
   show-icons: true;
   font: "Cantarell 14";
   cache-dir: "~/.local/share/rofi/";
   drun-display-format: "{name}";
+  window-format: "{w}{c}: {t}";
   scroll-method: 1;
   terminal: "kitty";
 }
