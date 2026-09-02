@@ -11,7 +11,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("waybar")
   hl.exec_cmd("hypridle")
   hl.exec_cmd("lxqt-policykit-agent")
-  hl.exec_cmd("awww-daemon & sleep 1 && awww clear 000020")
+  hl.exec_cmd("awww-daemon && sleep 1 && awww img $HOME/.config/hypr/wallpapers/$(ls $HOME/.config/hypr/wallpapers/ | shuf -n 1) -t none")
 end)
 
 -- CONFIG
@@ -76,8 +76,8 @@ hl.animation({leaf = "specialWorkspace", enabled = true, speed = 7, bezier = "my
 -- GESTURES
 
 hl.gesture({fingers = 3, direction = "vertical", action = "workspace"})
-hl.gesture({fingers = 3, direction = "left", action = function() hl.dispatch(hl.dsp.focus({direction = "left"})) end})
-hl.gesture({fingers = 3, direction = "right", action = function() hl.dispatch(hl.dsp.focus({direction = "right"})) end})
+hl.gesture({fingers = 3, direction = "left", action = function() hl.dispatch(hl.dsp.focus({direction = "right"})) end})
+hl.gesture({fingers = 3, direction = "right", action = function() hl.dispatch(hl.dsp.focus({direction = "left"})) end})
 
 -- WINDOW RULES
 
@@ -89,7 +89,7 @@ hl.window_rule({match = {workspace = "special:E1", fullscreen = 1}, border_color
 hl.window_rule({match = {workspace = "special:E2"}, border_color = "rgba(ff00ffff) rgba(840084ff) 90deg"})
 hl.window_rule({match = {workspace = "special:E2", fullscreen = 1}, border_color = "rgba(ff00ffff)"})
 
-hl.layer_rule({match = {namespace = "selector"}, no_anim = true})
+hl.layer_rule({name = "no-anim-selection", match = {namespace = "^selection$"}, no_anim = true})
 
 -- BINDS
 
@@ -114,7 +114,6 @@ hl.bind("SUPER + K", hl.dsp.exec_cmd("$HOME/Scripts/menu/menu.sh"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("swaync-client -t"))
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("swaync-client --hide-all && hyprctl dismissnotify"))
 hl.bind("SUPER + CTRL + N", hl.dsp.exec_cmd("$HOME/Scripts/dnd.sh"))
-hl.bind("SUPER + CTRL + T", hl.dsp.exec_cmd("$HOME/Scripts/touchpad.sh"))
 
 hl.bind("xf86monbrightnessdown", hl.dsp.exec_cmd("brightnessctl s 5%-"), {locked = true, repeating = true})
 hl.bind("xf86monbrightnessup", hl.dsp.exec_cmd("brightnessctl s 5%+"), {locked = true, repeating = true})
@@ -166,3 +165,19 @@ hl.bind("SUPER + mouse_up", hl.dsp.focus({workspace = "+1"}))
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag())
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize())
+
+-- SCRIPTS 
+
+hl.bind("SUPER + CTRL + T", function()
+    local current = hl.get_config("input.touchpad.disable_while_typing")
+
+    local new_state = not current
+    
+    hl.config({input = {touchpad = {disable_while_typing = new_state}}})
+    
+    if new_state then
+        hl.exec_cmd('hyprctl notify 5 5000 0 "fontsize:16 Enabled touchpad blocking"')
+    else
+        hl.exec_cmd('hyprctl notify 5 5000 "rgb(00ff00)" "fontsize:16 Disabled touchpad blocking"')
+    end
+end)

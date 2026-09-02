@@ -107,7 +107,6 @@
         },
         "format": "{capacity}% ",
         "on-click": "kitty --hold upower -i /org/freedesktop/UPower/devices/battery_BAT0",
-        "design-capacity": true,
         "events": {
 		        "on-discharging-low": "hyprctl notify 0 30000 0 'fontsize:16 Low Battery'",
             "on-discharging-critical": "hyprctl notify 0 60000 'rgb(ff0000)' 'fontsize:16 Very Low Battery!'"
