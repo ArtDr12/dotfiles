@@ -1,7 +1,6 @@
 -- INITIALIZATION
 
 hl.monitor({output = "eDP-1", mode = "highres", position = "auto", scale = "1"})
-
 hl.monitor({output = "HDMI-A-1", mode = "highres", position = "auto", scale = "1", mirror = "eDP-1"})
 
 hl.env("XCURSOR_SIZE", "24")
@@ -41,8 +40,9 @@ hl.config({
         rounding = 10,
         blur = {
             enabled = true,
-            size = 4,
-            passes = 2,
+            size = 0,
+            passes = 0,
+            variant = 'heat_shimmer'
         },
     },
     animations = {

@@ -13,7 +13,8 @@
     "hyprland/workspaces": {
         "active-only": true,
         "format": " {name}",
-        "all-outputs": true
+        "all-outputs": true,
+        "tooltip": false
     },
     "keyboard-state": {
         "numlock": true,
