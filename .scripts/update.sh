@@ -1,4 +1,6 @@
-neofetch --ascii_colors 14 14 --colors 14 6 6 6 6 15
+#!/usr/bin/env bash
+
+fastfetch
 
 echo -e "Launching system update...\n"
 sudo -v 

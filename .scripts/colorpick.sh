@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 COLOR=`hyprpicker -al`
 
 if [[ -z "$COLOR" ]]; then

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 swaync-client -d
 
 DND=`swaync-client -D`
