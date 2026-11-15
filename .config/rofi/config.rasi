@@ -1,104 +1,104 @@
 * {
-    selected-normal-foreground:  #fff;
-    foreground:                  #b0d0ff;
-    normal-foreground:           @foreground;
-    alternate-normal-background: #303030;
-    background:                  #202020;
-    alternate-normal-foreground: @foreground;
-    normal-background:           @background;
-    selected-normal-background:  #4080ff;
-    border-color:                #4080ff;
-    separatorcolor:              #4080ff;
-    textcolor:                   #d0e0ff;
-    background-color:            rgba(0, 0, 0, 0);
+  selected-normal-foreground: #fff;
+  foreground: #b0d0ff;
+  normal-foreground: @foreground;
+  alternate-normal-background: #303030;
+  background: 202020;
+  alternate-normal-foreground: @foreground;
+  normal-background: @background;
+  selected-normal-background: #4080ff;
+  border-color: #4080ff;
+  separatorcolor: #4080ff;
+  textcolor: #d0e0ff;
+  background-color: rgba(0, 0, 0, 0);
 }
 window {
-    background-color: @background;
-    border:           2;
-    padding:          5;
-    width:            800px;
+  background-color: @background;
+  border: 2;
+  padding: 5;
+  width: 800px;
 }
 mainbox {
-    border:  0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 message {
-    border:       1px dash 0px 0px ;
-    border-color: @separatorcolor;
-    padding:      1px ;
+  border: 1px dash 0px 0px ;
+  border-color: @separatorcolor;
+  padding: 1px ;
 }
 textbox {
-    text-color: @textcolor;
+  text-color: @textcolor;
 }
 listview {
-    fixed-height: 0;
-    border:       2px dash 0px 0px ;
-    border-color: @separatorcolor;
-    spacing:      0px ;
-    scrollbar:    true;
-    padding:      2px 0px 0px ;
-    lines: 12;
+  fixed-height: 0;
+  border: 2px dash 0px 0px ;
+  border-color: @separatorcolor;
+  spacing: 0px ;
+  scrollbar: true;
+  padding: 2px 0px 0px ;
+  lines: 12;
 }
 element {
-    border:  0;
-    padding: 5px;
+  border: 0;
+  padding: 5px;
 }
 element-text {
-    background-color: inherit;
-    text-color:       inherit;
+  background-color: inherit;
+  text-color: inherit;
 }
 element-icon {
-    size: 1em;
+  size: 1em;
 }
 element.normal.normal {
-    background-color: @normal-background;
-    text-color:       @textcolor;
+  background-color: @normal-background;
+  text-color: @textcolor;
 }
 element.selected.normal {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+  background-color: @selected-normal-background;
+  text-color: @selected-normal-foreground;
 }
 element.alternate.normal {
-    background-color: @alternate-normal-background;
-    text-color:       @textcolor;
+  background-color: @alternate-normal-background;
+  text-color: @textcolor;
 }
 scrollbar {
-    width:        8px ;
-    border:       0;
-    handle-width: 8px ;
-    padding:      0;
+  width: 8px ;
+  border: 0;
+  handle-width: 8px ;
+  padding: 0;
 }
 mode-switcher {
-    border:       2px dash 0px 0px ;
-    border-color: @separatorcolor;
+  border: 2px dash 0px 0px ;
+  border-color: @separatorcolor;
 }
 button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
+  background-color: @selected-normal-background;
+  text-color: @selected-normal-foreground;
 }
 inputbar {
-    spacing:    0;
-    text-color: @textcolor;
-    padding:    1px ;
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+  spacing: 0;
+  text-color: @textcolor;
+  padding: 1px ;
+  children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 case-indicator {
-    spacing:    0;
-    text-color: @textcolor;
+  spacing: 0;
+  text-color: @textcolor;
 }
 entry {
-    spacing:    0;
-    text-color: @textcolor;
+  spacing: 0;
+  text-color: @textcolor;
 }
 prompt {
-    spacing:    0;
-    text-color: @normal-foreground;
+  spacing: 0;
+  text-color: @normal-foreground;
 }
 textbox-prompt-colon {
-    expand:     false;
-    str:        ":";
-    margin:     0px 0.3em 0em 0em ;
-    text-color: @normal-foreground;
+  expand: false;
+  str: ":";
+  margin: 0px 0.3em 0em 0em ;
+  text-color: @normal-foreground;
 }
 
 configuration {
