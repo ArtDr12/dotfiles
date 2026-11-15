@@ -3,7 +3,7 @@
   foreground: #b0d0ff;
   normal-foreground: @foreground;
   alternate-normal-background: #303030;
-  background: 202020;
+  background: #202020;
   alternate-normal-foreground: @foreground;
   normal-background: @background;
   selected-normal-background: #4080ff;
